@@ -23,6 +23,11 @@ class LinkedList(object):
         self.head = head
 
     def append(self, new_element):
+        """
+        This method increments through the entire linked list,
+        Making it less efficient than other structures when simply
+        adding to the end.
+        """
         current = self.head
         if self.head:
             while current.next:
@@ -31,11 +36,12 @@ class LinkedList(object):
         else:
             self.head = new_element
 
-    def get_position(self, position):
-        """Get an element from a particular position.
-        Assume the first position is "1".
-        Return "None" if position is not in the list."""
-        i = 1
+    def get_element(self, position):
+        """
+        Provide position (int) and find element at that position.
+        Increments through the list until it finds element at that position.
+        """
+        i = 0
         current = self.head
 
         while position > i:
@@ -47,6 +53,23 @@ class LinkedList(object):
 
         return current
 
+    def get_position(self, value):
+        """
+        Provide value to return position of value if found.
+        Returns None if not found.
+        """
+        current = self.head
+        i = 0
+
+        while current.value != value and current.next:
+            current = current.next
+            i += 1
+
+        if current.value == value:
+            return i
+        else:
+            return None
+
     def insert(self, new_element, position):
         """Insert a new node at the given position.
         Assume the first position is "1".
@@ -56,7 +79,7 @@ class LinkedList(object):
             new_element.next = self.head
             self.head = new_element
         else:
-            prev = self.get_position(position - 1)
+            prev = self.get_element(position - 1)
             new_element.next = prev.next
             prev.next = new_element
 
