@@ -71,11 +71,10 @@ class LinkedList(object):
             return None
 
     def insert(self, new_element, position):
-        """Insert a new node at the given position.
-        Assume the first position is "1".
-        Inserting at position 3 means between
-        the 2nd and 3rd elements."""
-        if position == 1:
+        """
+        Insert new element at position (int).
+        """
+        if position == 0:
             new_element.next = self.head
             self.head = new_element
         else:
@@ -84,7 +83,9 @@ class LinkedList(object):
             prev.next = new_element
 
     def delete(self, value):
-        """Delete the first node with a given value."""
+        """
+        Delete the first node with a given value.
+        """
         current = self.head
         prev = None
 
