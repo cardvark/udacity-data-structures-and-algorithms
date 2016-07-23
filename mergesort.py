@@ -66,6 +66,7 @@ def merge_sort(arr):
 # print merge_sort([21, 4, 1, 3, 9, 20, 25, 6, 21, 14])
 # print merge_sort([5, 5, 5, 5, 5, 8, 10])
 # print merge_sort([1])
+print merge_sort([21, 4, 1, 3, 9, 20, 25])
 
 print recursive_merge([21, 4, 1, 3, 9, 20, 25, 6, 21, 14])
 print recursive_merge([5, 5, 5, 5, 5, 8, 10])
